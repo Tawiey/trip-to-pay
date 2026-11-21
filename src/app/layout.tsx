@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import "@fontsource-variable/space-grotesk";
-import "@fontsource-variable/dm-sans";
+import "@fontsource-variable/bricolage-grotesque";
+import "@fontsource-variable/instrument-sans";
 import "./globals.css";
 import { Toaster } from "@/components/ui/Toaster";
 

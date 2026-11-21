@@ -51,7 +51,7 @@ src/
   components/ UI: phone frame, wallet card, route map, demo controls, finance shell
 ```
 
-Stack: Next.js 16, React 19, TypeScript, Tailwind CSS 4, Zustand, lucide-react, Vitest.
+Stack: Next.js 16, React 19, TypeScript, Tailwind CSS 4, Zustand, lucide-react, Vitest. Type: Bricolage Grotesque (headings) + Instrument Sans (body).
 
 ## Where to take it next
 

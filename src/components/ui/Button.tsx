@@ -19,7 +19,7 @@ export function Button({
   return (
     <button
       className={cx(
-        "inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all duration-150 active:scale-[0.98] disabled:pointer-events-none disabled:opacity-40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal cursor-pointer",
+        "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full font-semibold transition-all duration-150 active:scale-[0.98] disabled:pointer-events-none disabled:opacity-40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal cursor-pointer",
         size === "sm" && "h-8 px-3.5 text-[13px]",
         size === "md" && "h-11 px-5 text-sm",
         size === "lg" && "h-[52px] px-6 text-[15px]",
