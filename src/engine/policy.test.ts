@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { DEFAULT_POLICY } from "./policy";
 import { computeAllowance } from "./allowance";
 import { authorise, tripSpend } from "./authorise";
-import type { Trip } from "./types";
+import type { MerchantCategory, Trip } from "./types";
 
 function trip(over: Partial<Trip> = {}): Trip {
   const allowance = computeAllowance(DEFAULT_POLICY, "B", "Durban", "2026-10-14", "2026-10-16");
@@ -27,7 +27,7 @@ function trip(over: Partial<Trip> = {}): Trip {
   };
 }
 
-const swipe = (category: any, amount: number, at = "2026-10-15T13:02", merchant = "Merchant") => ({
+const swipe = (category: MerchantCategory, amount: number, at = "2026-10-15T13:02", merchant = "Merchant") => ({
   merchant,
   category,
   amount,
