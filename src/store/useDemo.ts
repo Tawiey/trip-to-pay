@@ -6,6 +6,7 @@ import { createJSONStorage, persist } from "zustand/middleware";
 import type { Policy, Txn } from "@/engine/types";
 import * as A from "./actions";
 import { makeSeed } from "./seed";
+import { sanitizeStored } from "./storage";
 
 export const STORAGE_KEY = "trip-to-pay-demo-v1";
 const VERSION = 1;
@@ -32,7 +33,7 @@ export type DemoStore = A.DemoState & Actions;
 const safeStorage = createJSONStorage(() => ({
   getItem: (k: string) => {
     try {
-      return localStorage.getItem(k);
+      return sanitizeStored(localStorage.getItem(k));
     } catch {
       return null;
     }

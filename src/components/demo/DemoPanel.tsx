@@ -202,7 +202,7 @@ export function DemoLauncher({ className }: { className?: string }) {
           className,
         )}
       >
-        <Sparkles size={16} className="text-orange" /> Demo controls
+        <Sparkles size={16} className="text-orange" /> Demo<span className="hidden sm:inline"> controls</span>
       </button>
       {open && (
         <div className="fixed inset-0 z-[60]" role="dialog" aria-modal="true" aria-label="Demo controls">

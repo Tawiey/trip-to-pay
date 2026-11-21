@@ -50,7 +50,7 @@ export default function WalletPage() {
         <VirtualCard card={trip.card} city={trip.city} />
         {live && (
           <p className="mt-3 flex items-center justify-center gap-1.5 text-[12px] text-muted">
-            <Smartphone size={13} /> In your phone wallet · tap to pay anywhere Mastercard works
+            <Smartphone size={13} /> In your phone wallet · tap to pay
           </p>
         )}
 

@@ -26,7 +26,7 @@ export function ExceptionActions({ ex, trip }: { ex: TripException; trip: Trip }
     });
   };
   return (
-    <div className="flex flex-wrap justify-end gap-1.5">
+    <div className="flex flex-nowrap justify-end gap-1.5">
       <Button size="sm" variant="dark" onClick={() => act(suggested.resolution)}>
         {suggested.label}
       </Button>

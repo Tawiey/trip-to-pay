@@ -17,7 +17,7 @@ import { cx } from "@/components/ui/cx";
 function Kpi({ value, label, tone }: { value: string | number; label: string; tone?: "teal" | "orange" }) {
   return (
     <Card className="p-5">
-      <p className={cx("font-display text-3xl font-bold tabular", tone === "teal" && "text-teal", tone === "orange" && "text-orange-2")}>{value}</p>
+      <p className={cx("font-display text-2xl font-bold tabular sm:text-3xl", tone === "teal" && "text-teal", tone === "orange" && "text-orange-2")}>{value}</p>
       <p className="mt-1 text-sm text-muted">{label}</p>
     </Card>
   );
@@ -104,10 +104,10 @@ export default function Overview() {
                 <tbody className="divide-y divide-line">
                   {open.map(({ ex, trip, employee }) => (
                     <tr key={ex.id} className="align-middle">
-                      <td className="px-5 py-3.5 font-semibold">{shortName(employee.name)}</td>
+                      <td className="whitespace-nowrap px-5 py-3.5 font-semibold">{shortName(employee.name)}</td>
                       <td className="px-3 py-3.5">
                         <Link href={`/finance/trips/${trip.id}`} className="hover:text-teal hover:underline">
-                          {trip.city} {dateRange(trip.startDate, trip.endDate)}
+                          <span className="whitespace-nowrap">{trip.city}</span> {dateRange(trip.startDate, trip.endDate)}
                         </Link>
                       </td>
                       <td className="px-3 py-3.5 text-muted">{ex.description}</td>
