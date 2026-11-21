@@ -146,11 +146,25 @@ export interface Allowance {
 
 export type TripStatus = "pending_approval" | "active" | "closed" | "paid";
 
+export interface MileagePay {
+  /** Up to the SARS rate — payroll code 3703 */
+  nonTaxable: Cents;
+  /** Excess over the SARS rate — payroll code 3702 (PAYE) */
+  taxable: Cents;
+  total: Cents;
+}
+
 export interface Claim {
+  /** Already settled on the card — never paid out again. */
   cardSpend: Cents;
   mileageKm: number;
-  mileage: { nonTaxable: Cents; taxable: Cents; total: Cents };
+  gpsKm: number;
+  /** Mileage paid now (GPS-verified drives). */
+  paidMileage: MileagePay;
+  /** Mileage held until finance clears an exception (non-GPS drives). */
+  held: Cents;
   outOfPocket: Cents;
+  /** Paid to the employee now: paidMileage.total + outOfPocket. */
   payable: Cents;
   exceptions: TripException[];
 }
