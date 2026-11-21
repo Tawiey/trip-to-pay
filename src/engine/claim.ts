@@ -43,6 +43,18 @@ export function buildClaim(policy: Policy, trip: Trip): Claim {
     }
   }
 
+  for (const b of trip.bookings.filter((b) => !b.withinCap && b.overBy)) {
+    exceptions.push({
+      id: `ex-${b.id}`,
+      rule: "over_hotel_cap",
+      description: `${b.kind === "hotel" ? "Hotel" : "Flight"} ${formatZAR(b.overBy!)} over city cap`,
+      amount: b.overBy!,
+      suggested: "approve_once",
+      status: "open",
+      refId: b.id,
+    });
+  }
+
   const mileageKm = round1(trip.drives.reduce((s, d) => s + d.km, 0));
   const gpsKm = round1(trip.drives.filter((d) => d.gps).reduce((s, d) => s + d.km, 0));
   let held = 0;

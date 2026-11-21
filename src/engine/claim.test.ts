@@ -81,6 +81,10 @@ describe("buildClaim", () => {
     ] }));
     expect(c.exceptions).toMatchObject([{ rule: "dining_over_cap", suggested: "recover", amount: 14000, refId: "b" }]);
   });
+  it("booking over city cap raises approve_once", () => {
+    const c = buildClaim(P, trip({ bookings: [{ id: "h", kind: "hotel", title: "Hotel", detail: "", amount: 341000, withinCap: false, overBy: 41000 }] }));
+    expect(c.exceptions).toMatchObject([{ rule: "over_hotel_cap", suggested: "approve_once", amount: 41000, refId: "h" }]);
+  });
   it("declined txns are not card spend", () => {
     const c = buildClaim(P, trip({ txns: [txn({ status: "declined", amount: 18000, declineReason: "Blocked by policy" })] }));
     expect(c.cardSpend).toBe(0);

@@ -123,6 +123,8 @@ export interface Booking {
   detail: string;
   amount: Cents;
   withinCap: boolean;
+  /** How far over the policy cap, when not within cap. */
+  overBy?: Cents;
 }
 
 export interface Card {
