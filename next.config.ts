@@ -1,9 +1,8 @@
 import type { NextConfig } from "next";
 
+// The demo is client-rendered (state lives in the browser), so Cache Components /
+// partial prerendering are off: they would only force Suspense around URL hooks.
 const nextConfig: NextConfig = {
-  /* config options here */
-  cacheComponents: true,
-  partialPrefetching: true,
   turbopack: {
     rules: {
       "*.css": {
